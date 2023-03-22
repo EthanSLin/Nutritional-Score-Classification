@@ -34,4 +34,4 @@ Our model performed very well. with an R^2 test score of 0.8472, which is a mark
 
 We have included a confusion matrix to visualize our model's performance.
 
-<iframe src="assets/confusionmatrix.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/confusionmatrix.html" width=600 height=450 frameBorder=0></iframe>
