@@ -1,4 +1,4 @@
-It is well-established that junk food is usually lacking in nutrition, but does the same hold true for home-made foods? This project by Beomsuk Seo and Ethan Lin for DSC 80 at UCSD aims to answer that, and is a continuation of our previous project: https://ethanslin.github.io/Comfort-Food-Bias-Analysis/
+It is well-established that junk food is usually lacking in nutrition, but does the same hold true for home-made foods? This project by Beomsuk Seo and Ethan Lin for DSC 80 at UCSD aims to answer that. Our exploratory data analysis of this dataset can be found <a href = 'https://ethanslin.github.io/Comfort-Food-Bias-Analysis/'>here</a>
 
 # Introduction
 
@@ -35,3 +35,23 @@ Our model performed very well. with an R^2 test score of 0.8472, which is a mark
 We have included a confusion matrix to visualize our model's performance.
 
 <iframe src="assets/confusionmatrix.html" width=1200 height=900 frameBorder=0></iframe>
+
+# Fairness Analysis
+
+We would now like to conduct a fairness analysis, to determine if our model performs worse for high-calorie recipes than it does for low-calorie recipes.
+
+- Group X: Recipes with a caloric value greater than 400
+- Group Y: Recipes with a caloric value lesser than or equal to 400
+
+As previously stated, our evaluation metric is precision.
+
+## Hypotheses
+
+- Null Hypothesis: Our model is fair. Its precision for low calorie and high calorie recipes are roughly the same, and any differences are due to random chance.
+- Alternative Hypothesis: Our model is unfair. Its precision for high calorie recipes is lower than its precision for low calorie recipes.
+
+For our test statistic, we chose to use the difference in precision and for our significance level, we chose to use 0.01.
+
+Our resulting p-value was essentially 0.00. We practically never see differences in precision as low as the observed difference in precision. Therefore, we reject the null hypothesis in favor of the alternative hypothesis.
+
+Thus, our model likely does not achieve precision parity. Our model likely has lower precision for high-calorie recipes than for low-calorie recipes.
